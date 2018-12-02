@@ -1,0 +1,9 @@
+---
+target: # Diretório alvo para o backup
+safe_storage: # Diretório onde salvar os backups
+# Multiplos dias separar por vírgula
+# Mon,Tue...
+# Nulo para todos os dias
+day_of_week: "" # Dias para rodar o backup.
+hour: # Hora para rodar o backup
+minute: # Minuto para rodar o backup 

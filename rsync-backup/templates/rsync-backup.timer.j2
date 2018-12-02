@@ -1,0 +1,12 @@
+[Unit]
+Description=runs rsync-backup.service at a given time
+ 
+[Timer]
+OnCalendar={{ day_of_week }} *-*-* {{ hour }}:{{ minute }}:00 ## Checar se é
+															  ## válido com
+															  ## day_of_week nulo
+Persistent=true
+Unit=rsync-backup.service
+ 
+[Install]
+WantedBy=timers.target

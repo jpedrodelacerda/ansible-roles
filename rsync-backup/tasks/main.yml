@@ -1,0 +1,36 @@
+---
+- name: Gera a pasta dos service
+  file:
+    path: /etc/systemd/rsync-backup.d
+    owner: root
+    group: root
+    mode: 0700
+    state: directory
+
+- name: Gera o serviço de backup
+  template:
+    src: rsync-backup.service.j2
+    dest: /etc/systemd/rsync-backup.d/nfs-backup.service
+    owner: root
+    group: root
+    mode: 0700
+
+- name: Gera o temporizador do serviço
+  template:
+    src: rsync-backup.timer.j2
+    dest: /etc/systemd/rsync-backup.d/nfs-backup.timer
+    owner: root
+    group: root
+    mode: 0700
+
+- name: Ativa o serviço de backup
+  systemd:
+    name: rsync-backup.service
+    state: started
+    enabled: yes
+
+- name: Ativa o temporizador do backup
+  systemd:
+    name: rsync-backup.timer
+    state: started
+    enabled: yes

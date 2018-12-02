@@ -3,7 +3,7 @@ dependencies: []
 
 galaxy_info:
   author: jpedrodelacerda
-  description: Simple rsync backup via systemd
+  description: Simple automatic rsync backup via systemd timers
   license: "license (BSD, MIT)"
   min_ansible_version: 2.4
   galaxy_tags:
